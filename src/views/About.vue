@@ -1,11 +1,5 @@
 <template>
   <div>
-    <div class="padi">
-      <div class="center">
-        <!-- <img src="@/assets/light.jpg" /> -->
-      </div>
-    </div>
-
     <div v-for="(item, index) in ipss" :key="index">
       <div>
         {{ item.ip_address }}
@@ -28,7 +22,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 
 export default {
-  name: "HelloWorld",
+  name: "About",
 
   data() {
     return {

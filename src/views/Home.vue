@@ -8,7 +8,7 @@
         <p>あなたのIPアドレス({{ cli_id }})を保存しました。</p>
         <p>いつでも通報できる準備ができています。</p>
       </div>
-
+      <router-link to="/list">ユーザー一覧ページ</router-link>
       <iframe
         v-bind:src="
           'https://maps.google.co.jp/maps?output=embed&z=10&q=' + String(latlon)
