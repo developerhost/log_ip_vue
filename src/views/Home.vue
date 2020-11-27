@@ -1,21 +1,13 @@
 <template>
-  <v-main>
+  <div>
     <div class="padi">
-      <v-alert prominent type="error">
-        <v-col class="grow">
-          あなたのIPアドレス({{ cli_id }})を保存しました。
-        </v-col>
-
-        <v-col class="grow">
-          いつでも通報の準備ができています。
-        </v-col>
-      </v-alert>
-
       <div class="center">
-        <!-- <img src="@/assets/light.jpg" /> -->
+        <img src="@/assets/light.jpg" />
       </div>
-
-      <router-link to="/list">ページ１へ</router-link>
+      <div class="center">
+        <p>あなたのIPアドレス({{ cli_id }})を保存しました。</p>
+        <p>いつでも通報できる準備ができています。</p>
+      </div>
 
       <iframe
         v-bind:src="
@@ -26,23 +18,7 @@
         frameborder="0"
       ></iframe>
     </div>
-
-    <div>aaa</div>
-
-    <div v-for="(item, index) in ipss" :key="index">
-      <div>
-        {{ item.ip_address }}
-      </div>
-
-      <div>
-        {{ item.latlon }}
-      </div>
-
-      <div>
-        {{ item.createdAt.toDate() }}
-      </div>
-    </div>
-  </v-main>
+  </div>
 </template>
 
 <script>
@@ -82,14 +58,7 @@ export default {
       });
   },
   mounted() {},
-  firestore() {
-    return {
-      ipss: db
-        .collection("ips")
-        .orderBy("createdAt", "desc")
-        .limit(5),
-    };
-  },
+
   methods: {
     addtest() {
       db.collection("ips").add({
@@ -101,3 +70,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.center {
+  text-align: center;
+}
+</style>
