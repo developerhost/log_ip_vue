@@ -1,11 +1,9 @@
 <template>
   <div>
     <input v-model="uid" placeholder="your id" />
-    <button v-on:click="serch()">serch</button>
+    <button v-on:click="serch">serch</button>
     <div v-if="click">
-      <div>sasasa</div>
-      <div>{{ ipss }}</div>
-      <!-- <div v-for="(item, index) in ipss" :key="index">
+      <div v-for="(item, index) in ipss" :key="index">
         <div>
           {{ item.ip_address }}
         </div>
@@ -15,9 +13,9 @@
         </div>
 
         <div>
-          {{ item.createdAt }}
+          {{ item.createdAt.toDate() }}
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
@@ -38,6 +36,7 @@ export default {
       latlon: null,
       cli_id: null,
       ipss: [],
+      test: null,
     };
   },
 
@@ -45,7 +44,14 @@ export default {
 
   created() {},
   mounted() {},
-
+  firestore() {
+    return {
+      ipss: db
+        .collection("ips")
+        .orderBy("createdAt", "desc")
+        .limit(5),
+    };
+  },
   methods: {
     addtest() {
       db.collection("ips").add({
@@ -55,22 +61,11 @@ export default {
       });
     },
     serch() {
-      console.log("done");
-      db.collection("ips")
+      this.test = db
+        .collection("ips")
         .orderBy("createdAt", "desc")
-        .limit(5)
-        .get()
-        .then(function(querySnapshot) {
-          querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-          });
-        })
-        .catch(function(error) {
-          console.log("Error getting documents: ", error);
-        });
+        .limit(5);
       this.click = true;
-      console.log(this.ipss);
     },
   },
 };
