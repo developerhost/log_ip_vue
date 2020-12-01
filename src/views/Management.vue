@@ -1,17 +1,32 @@
 <template>
   <div>
     <div class="w-100 p-3">
-      <b-button block variant="primary" v-b-toggle.collapse-1
-        >Create URL</b-button
-      >
-      <b-collapse id="collapse-1" class="mt-2">
-        <b-card>
-          <b-card-text>相手に踏ませるURL:</b-card-text>
-          <b-card-text> {{ honeyurl }}</b-card-text>
-          <b-card-text>自分が見るURL:</b-card-text>
-          <b-card-text> {{ listurl }}</b-card-text>
-        </b-card>
-      </b-collapse>
+      <div class="">
+        <h1>使い方ガイド</h1>
+        <p>1.「create URL」ボタンを押し、URLの生成を行う。</p>
+        <p>2.相手に踏ませる用のURLなどをLINEなどに貼り付けアクセスさせる。</p>
+        <p>
+          3.「2.」の後に、自分が見るようURLにアクセスするとアクセス者のURLの最新5件が表示される。
+        </p>
+        <p>4.URLは保存しておけば、ずっと使うことができます。</p>
+      </div>
+      <div>
+        <b-button block variant="primary" v-b-toggle.collapse-1
+          >Create URL</b-button
+        >
+        <b-collapse id="collapse-1" class="mt-2">
+          <b-card>
+            <b-card-text>相手に踏ませるURL:</b-card-text>
+            <b-card-text
+              ><a :href="honeyurl"> {{ honeyurl }}</a></b-card-text
+            >
+            <b-card-text>自分が見るURL:</b-card-text>
+            <b-card-text
+              ><a :href="listurl"> {{ listurl }}</a></b-card-text
+            >
+          </b-card>
+        </b-collapse>
+      </div>
     </div>
   </div>
 </template>
