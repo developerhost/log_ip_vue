@@ -1,18 +1,23 @@
 <template>
   <div>
     <div v-if="click">
-      <div v-for="(item, index) in ipss" :key="index">
-        <div>
-          {{ item.ip_address }}
-        </div>
+      <div v-for="(item, index) in ipss" :key="index" class="w-100">
+        <b-card :title="item.ip_address" img-top tag="card" class="m-3">
+          <iframe
+            v-bind:src="
+              'https://maps.google.co.jp/maps?output=embed&z=10&q=' +
+                String(item.latlon)
+            "
+            width="100%"
+            height="250"
+            frameborder="0"
+          ></iframe>
 
-        <div>
-          {{ item.latlon }}
-        </div>
-
-        <div>
-          {{ item.createdAt.toDate() }}
-        </div>
+          <b-card-text> 緯度経度:{{ item.latlon }} </b-card-text>
+          <b-card-text>
+            {{ item.createdAt.toDate() }}
+          </b-card-text>
+        </b-card>
       </div>
     </div>
   </div>
