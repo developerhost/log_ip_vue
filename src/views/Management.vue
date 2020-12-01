@@ -1,16 +1,24 @@
 <template>
   <div>
-    <div class="w-100 p-3">
-      <div class="">
-        <h1>使い方ガイド</h1>
+    <div class="top-visual">
+      <div class="inner-text">
+        <img class="logo-svg" src="../assets/logo.svg" />
+      </div>
+      <p>aaa</p>
+    </div>
+    <div class="w-100 p-2 back-o">
+      <div class="back-w p-2 pb-4 pt-4 mt-3 mb-3">
+        <div class="f-c-o font-weight-bold">
+          <div class="text-center">業者撃退・詐欺僕滅</div>
+          <h1 class="text-center">IP hacks</h1>
+        </div>
+        <h3 class="text-center mb-3 mt-3">使い方ガイド</h3>
         <p>1.「create URL」ボタンを押し、URLの生成を行う。</p>
         <p>2.相手に踏ませる用のURLなどをLINEなどに貼り付けアクセスさせる。</p>
         <p>
           3.「2.」の後に、自分が見るようURLにアクセスするとアクセス者のURLの最新5件が表示される。
         </p>
         <p>4.URLは保存しておけば、ずっと使うことができます。</p>
-      </div>
-      <div>
         <b-button block variant="primary" v-b-toggle.collapse-1
           >Create URL</b-button
         >
@@ -18,11 +26,15 @@
           <b-card>
             <b-card-text>相手に踏ませるURL:</b-card-text>
             <b-card-text
-              ><a :href="honeyurl"> {{ honeyurl }}</a></b-card-text
+              ><a :href="honeyurl" target="”_blank”">
+                {{ honeyurl }}</a
+              ></b-card-text
             >
             <b-card-text>自分が見るURL:</b-card-text>
             <b-card-text
-              ><a :href="listurl"> {{ listurl }}</a></b-card-text
+              ><a :href="listurl" target="”_blank”">
+                {{ listurl }}</a
+              ></b-card-text
             >
           </b-card>
         </b-collapse>
@@ -64,3 +76,44 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.f-c-o {
+  color: #ff6600;
+}
+.back-w {
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+.back-o {
+  background-color: #ff6600;
+}
+.top-visual {
+  height: 100vh;
+  background-image: url(../assets/top.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.inner-text {
+  position: absolute;
+  color: #ff6600 !important;
+  font-weight: bold;
+  font-size: 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.logo-svg {
+  width: 90%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+</style>
