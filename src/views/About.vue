@@ -1,11 +1,7 @@
 <template>
   <div>
-    <input v-model="uid" placeholder="your id" />
-    <button v-on:click="serch()">serch</button>
     <div v-if="click">
-      <div>sasasa</div>
-      <div>{{ ipss }}</div>
-      <!-- <div v-for="(item, index) in ipss" :key="index">
+      <div v-for="(item, index) in ipss" :key="index">
         <div>
           {{ item.ip_address }}
         </div>
@@ -15,9 +11,9 @@
         </div>
 
         <div>
-          {{ item.createdAt }}
+          {{ item.createdAt.toDate() }}
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
@@ -40,7 +36,11 @@ export default {
   components: {},
 
   created() {
-    this.uid = this.$route.query.u;
+    if (this.$route.query.u == null) {
+      console.log("null");
+    } else {
+      this.serch(this.$route.query.u);
+    }
   },
   mounted() {},
 
@@ -52,8 +52,10 @@ export default {
         createdAt: firebase.firestore.Timestamp.now(),
       });
     },
-    serch() {
+    serch(uid) {
+      console.log(uid);
       db.collection("ips")
+        .where("uid", "==", uid)
         .orderBy("createdAt", "desc")
         .limit(5)
         .get()
