@@ -30,20 +30,18 @@ import "firebase/firestore";
 export default {
   name: "About",
 
-  data() {
-    return {
-      uid: null,
-      click: false,
-      info: null,
-      latlon: null,
-      cli_id: null,
-      ipss: [],
-    };
-  },
+  data: () => ({
+    uid: null,
+    click: false,
+    ipss: null,
+    test: "test",
+  }),
 
   components: {},
 
-  created() {},
+  created() {
+    this.uid = this.$route.query.u;
+  },
   mounted() {},
 
   methods: {
@@ -55,22 +53,36 @@ export default {
       });
     },
     serch() {
-      console.log("done");
       db.collection("ips")
         .orderBy("createdAt", "desc")
         .limit(5)
         .get()
-        .then(function(querySnapshot) {
+        .then((querySnapshot) => {
+          var templist = [];
           querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
+            // console.log(doc.id, " => ", doc.data());
+            templist.push(doc.data());
           });
+          this.ipss = templist;
         })
+        // .then(function(querySnapshot) {
+        //   var templist = [];
+        //   querySnapshot.forEach(function(doc) {
+        //     // console.log(doc.id, " => ", doc.data());
+        //     // console.log(doc.data());
+        //     templist.push(doc.data());
+        //   });
+        //   return templist;
+        //   // console.log(templist);
+        // })
         .catch(function(error) {
           console.log("Error getting documents: ", error);
         });
+
+      // console.log(tmp);
+      // this.ipss = tmp;
+      // console.log(this.ipss);
       this.click = true;
-      console.log(this.ipss);
     },
   },
 };
