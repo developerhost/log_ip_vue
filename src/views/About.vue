@@ -2,7 +2,7 @@
   <div>
     <div v-if="click">
       <div v-for="(item, index) in ipss" :key="index" class="w-100">
-        <b-card :title="item.ip_address" img-top tag="card" class="m-3">
+        <b-card :title="item.ip_address" img-top class="m-3">
           <iframe
             v-bind:src="
               'https://maps.google.co.jp/maps?output=embed&z=10&q=' +
@@ -58,7 +58,7 @@ export default {
       });
     },
     serch(uid) {
-      console.log(uid);
+      // console.log(uid);
       db.collection("ips")
         .where("uid", "==", uid)
         .orderBy("createdAt", "desc")
