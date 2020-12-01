@@ -1,24 +1,22 @@
 <template>
-  <div>
-    <div v-if="click">
-      <div v-for="(item, index) in ipss" :key="index" class="w-100">
-        <b-card :title="item.ip_address" img-top class="m-3">
-          <iframe
-            v-bind:src="
-              'https://maps.google.co.jp/maps?output=embed&z=10&q=' +
-                String(item.latlon)
-            "
-            width="100%"
-            height="250"
-            frameborder="0"
-          ></iframe>
+  <div class="back-o p-3">
+    <div v-for="(item, index) in ipss" :key="index" class="">
+      <b-card :title="item.ip_address" img-top class="rounded-lg mb-3">
+        <iframe
+          v-bind:src="
+            'https://maps.google.co.jp/maps?output=embed&z=10&q=' +
+              String(item.latlon)
+          "
+          width="100%"
+          height="250"
+          frameborder="0"
+        ></iframe>
 
-          <b-card-text> 緯度経度:{{ item.latlon }} </b-card-text>
-          <b-card-text>
-            {{ datetranse(item.createdAt.toDate()) }}
-          </b-card-text>
-        </b-card>
-      </div>
+        <b-card-text> 緯度経度:{{ item.latlon }} </b-card-text>
+        <b-card-text>
+          {{ datetranse(item.createdAt.toDate()) }}
+        </b-card-text>
+      </b-card>
     </div>
   </div>
 </template>
@@ -99,3 +97,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.back-o {
+  background-color: #ff6600;
+}
+</style>
