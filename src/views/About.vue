@@ -65,23 +65,9 @@ export default {
           });
           this.ipss = templist;
         })
-        // .then(function(querySnapshot) {
-        //   var templist = [];
-        //   querySnapshot.forEach(function(doc) {
-        //     // console.log(doc.id, " => ", doc.data());
-        //     // console.log(doc.data());
-        //     templist.push(doc.data());
-        //   });
-        //   return templist;
-        //   // console.log(templist);
-        // })
         .catch(function(error) {
           console.log("Error getting documents: ", error);
         });
-
-      // console.log(tmp);
-      // this.ipss = tmp;
-      // console.log(this.ipss);
       this.click = true;
     },
   },
