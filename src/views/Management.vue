@@ -7,18 +7,28 @@
       <p>aaa</p>
     </div>
     <div class="w-100 p-2 back-o">
-      <div class="back-w p-2 pb-4 pt-4 mt-3 mb-3">
+      <div class="back-w p-4 mt-3 mb-3">
         <div class="f-c-o font-weight-bold">
           <div class="text-center">業者撃退・詐欺僕滅</div>
           <h1 class="text-center">IP hacks</h1>
         </div>
         <h3 class="text-center mb-3 mt-3">使い方ガイド</h3>
-        <p>1.「create URL」ボタンを押し、URLの生成を行う。</p>
-        <p>2.相手に踏ませる用のURLなどをLINEなどに貼り付けアクセスさせる。</p>
         <p>
-          3.「2.」の後に、自分が見るようURLにアクセスするとアクセス者のURLの最新5件が表示される。
+          <span class="font-weight-bold">1.</span>「create
+          URL」ボタンを押し、URLの生成を行う。
         </p>
-        <p>4.URLは保存しておけば、ずっと使うことができます。</p>
+        <p>
+          <span class="font-weight-bold">2.</span
+          >相手に踏ませる用のURLなどをLINEなどに貼り付けアクセスさせる。
+        </p>
+        <p>
+          <span class="font-weight-bold">3.</span
+          >「2.」の後に、自分が見るようURLにアクセスするとアクセス者のURLの最新5件が表示される。
+        </p>
+        <p>
+          <span class="font-weight-bold">4.</span
+          >URLは保存しておけば、ずっと使うことができます。
+        </p>
         <b-button block variant="primary" v-b-toggle.collapse-1
           >Create URL</b-button
         >
