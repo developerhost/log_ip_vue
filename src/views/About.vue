@@ -15,7 +15,7 @@
 
           <b-card-text> 緯度経度:{{ item.latlon }} </b-card-text>
           <b-card-text>
-            {{ item.createdAt.toDate() }}
+            {{ datetranse(item.createdAt.toDate()) }}
           </b-card-text>
         </b-card>
       </div>
@@ -76,6 +76,25 @@ export default {
           console.log("Error getting documents: ", error);
         });
       this.click = true;
+    },
+    datetranse(date) {
+      var date_tarnsed = new Date(date);
+      var year_str = date_tarnsed.getFullYear();
+      var month_str = 1 + date_tarnsed.getMonth();
+      var day_str = date_tarnsed.getDate();
+      var hour_str = date_tarnsed.getHours();
+      var minute_str = date_tarnsed.getMinutes();
+      // var second_str = date_tarnsed.getSeconds();
+
+      var format_str = "YYYY年MM月DD日 hh時mm分";
+      format_str = format_str.replace(/YYYY/g, year_str);
+      format_str = format_str.replace(/MM/g, month_str);
+      format_str = format_str.replace(/DD/g, day_str);
+      format_str = format_str.replace(/hh/g, hour_str);
+      format_str = format_str.replace(/mm/g, minute_str);
+      // format_str = format_str.replace(/ss/g, second_str);
+      // console.log(format_str);
+      return format_str;
     },
   },
 };
