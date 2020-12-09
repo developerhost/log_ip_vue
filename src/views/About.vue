@@ -99,6 +99,7 @@ export default {
 </script>
 <style scoped>
 .back-o {
-  background-color: #ff6600;
+  background-color: #f9f9f9;
+  min-height: 100vh;
 }
 </style>

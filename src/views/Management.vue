@@ -1,53 +1,74 @@
 <template>
   <div>
-    <div class="top-visual">
-      <div class="inner-text">
-        <img class="logo-svg" src="../assets/logo.svg" />
-      </div>
-      <p>aaa</p>
-    </div>
-    <div class="w-100 p-2 back-o">
-      <div class="back-w p-4 mt-3 mb-3">
+    <div class="w-100 p-2 back-o hei">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand f-c-o font-weight-bold" href="#">特定さん.com</a>
+      </nav>
+      <b-card class="rounded-lg">
+        <p class="text-center font-weight-bold">
+          リンクを踏ませてIPアドレスを特定する
+        </p>
+        <div class="">
+          <b-button
+            block
+            variant="primary"
+            v-b-toggle.collapse-1
+            class="font-weight-bold"
+            >Go 特定さん !</b-button
+          >
+          <b-collapse id="collapse-1" class="mt-2">
+            <b-card>
+              <b-card-text class="font-weight-bold"
+                >相手に踏ませるURL:</b-card-text
+              >
+              <b-card-text
+                ><a :href="honeyurl" target="”_blank”">
+                  {{ honeyurl }}</a
+                ></b-card-text
+              >
+              <b-card-text class="font-weight-bold"
+                >踏んだ相手の確認用URL:</b-card-text
+              >
+              <b-card-text
+                ><a :href="listurl" target="”_blank”">
+                  {{ listurl }}</a
+                ></b-card-text
+              >
+            </b-card>
+          </b-collapse>
+        </div>
+      </b-card>
+      <div class="back-w p-4 back-o">
         <div class="f-c-o font-weight-bold">
           <div class="text-center">業者撃退・詐欺僕滅</div>
-          <h1 class="text-center">IP hacks</h1>
+          <h4 class="text-center font-weight-bold">特定さん</h4>
         </div>
-        <h3 class="text-center mb-3 mt-3">使い方ガイド</h3>
-        <p>
-          <span class="font-weight-bold">1.</span>「create
-          URL」ボタンを押し、URLの生成を行う。
-        </p>
-        <p>
-          <span class="font-weight-bold">2.</span
-          >相手に踏ませる用のURLなどをLINEなどに貼り付けアクセスさせる。
-        </p>
-        <p>
-          <span class="font-weight-bold">3.</span
-          >「2.」の後に、自分が見るようURLにアクセスするとアクセス者のURLの最新5件が表示される。
-        </p>
-        <p>
-          <span class="font-weight-bold">4.</span
-          >URLは保存しておけば、ずっと使うことができます。
-        </p>
-        <b-button block variant="primary" v-b-toggle.collapse-1
-          >Create URL</b-button
-        >
-        <b-collapse id="collapse-1" class="mt-2">
-          <b-card>
-            <b-card-text>相手に踏ませるURL:</b-card-text>
-            <b-card-text
-              ><a :href="honeyurl" target="”_blank”">
-                {{ honeyurl }}</a
-              ></b-card-text
-            >
-            <b-card-text>自分が見るURL:</b-card-text>
-            <b-card-text
-              ><a :href="listurl" target="”_blank”">
-                {{ listurl }}</a
-              ></b-card-text
-            >
-          </b-card>
-        </b-collapse>
+        <div class="mt-3">
+          <p class="mt-3 font-weight-bold m-0">使い方ガイド</p>
+          <p class="">
+            <span class="font-weight-bold">1.</span>「Go 特定さん
+            !」ボタンを押し、URLの生成を行う。
+          </p>
+          <p class="">
+            <span class="font-weight-bold">2.</span
+            >相手に踏ませる用のURLなどをLINEなどに貼り付けアクセスさせる。
+          </p>
+          <p class="">
+            <span class="font-weight-bold">3.</span
+            >「2.」の後に、自分が見るようURLにアクセスするとアクセス者のURLの最新5件が表示される。
+          </p>
+          <p class="m-0">
+            <span class="font-weight-bold">4.</span
+            >URLは保存しておけば、ずっと使うことができます。
+          </p>
+        </div>
+        <div class="mt-3">
+          <p class="font-weight-bold m-0">特徴</p>
+          <li>無料で使用可能</li>
+          <li>登録要求なし</li>
+          <li>直感的な操作</li>
+          <li>ぜひ、インターネット上の詐欺や業者対策にお使いください</li>
+        </div>
       </div>
     </div>
   </div>
@@ -88,15 +109,28 @@ export default {
 </script>
 
 <style scoped>
+.btn-primary {
+  background: #ff0068;
+  color: #ffffff;
+}
+.hei {
+  min-height: 100vh;
+}
+.center-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .f-c-o {
-  color: #ff6600;
+  color: #ff0068;
 }
 .back-w {
   background-color: #ffffff;
   border-radius: 15px;
 }
 .back-o {
-  background-color: #ff6600;
+  /* background-color: #ff6600; */
+  background: #f9f9f9;
 }
 .top-visual {
   height: 100vh;
