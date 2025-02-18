@@ -11,6 +11,13 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://loggerip.web.app/management" />
     <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/loggerip.appspot.com/o/ogp.jpg?alt=media&token=a52716e2-187b-46b7-905a-0a54266bfd46" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', process.env.VUE_APP_GA_MEASUREMENT_ID);
+    </script>
   </head>
   <body>
     <noscript>
